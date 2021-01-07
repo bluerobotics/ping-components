@@ -82,6 +82,30 @@ Item {
     }
 
     Component {
+        id: extendedTickMark
+        RowLayout {
+            anchors.right: parent.right
+            height: lastIndex ? remainingHeight() : nominalHeight()
+            width: root.width
+
+            Layout.fillHeight: true
+            Layout.alignment: Qt.AlignRight | Qt.AlignBottom
+
+            property var lastIndex: (index + 1) == numTicks
+                Rectangle {
+                    id: extendedTick
+                    width: root.width
+                    height: 1
+                    Layout.alignment: Qt.AlignRight | Qt.AlignBottom
+                    color: root.color
+                    border.color: root.color
+                    border.width: 1
+                    visible: parent.height > 0
+                }
+        }
+    }
+
+    Component {
         id: tickLabel
 
         RowLayout {
@@ -128,6 +152,14 @@ Item {
     Column {
         anchors.fill: parent
 
+        Repeater {
+            model: numTicks
+            delegate: extendedTickMark
+        }
+    }
+
+    Column {
+        anchors.fill:parent
         Repeater {
             model: numTicks
             delegate: tickLabel
