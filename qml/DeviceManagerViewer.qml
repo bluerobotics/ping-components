@@ -246,7 +246,7 @@ PingPopup {
                         Label {
                             Layout.fillWidth: true
                             horizontalAlignment: Text.AlignHCenter
-                            text: connection.typeToString() + " " + connection.createConfString()
+                            text: connection.typeToString() + " " + connection.argsAsConst()[0]
                         }
 
                         // Use same layout if item is not visible, to have a proper alignment

@@ -29,8 +29,8 @@ DeviceManager::DeviceManager()
 void DeviceManager::append(const LinkConfiguration& linkConf, const QString& deviceName, const QString& detectorName)
 {
     for (int i {0}; i < _sensors[Connection].size(); i++) {
-        auto vectorLinkConf = _sensors[Connection][i].value<QSharedPointer<LinkConfiguration>>().get();
-        if (*vectorLinkConf == linkConf) {
+        const auto vectorLinkConf = _sensors[Connection][i].value<QSharedPointer<LinkConfiguration>>();
+        if (!vectorLinkConf.isNull() && *vectorLinkConf == linkConf) {
             qCDebug(DEVICEMANAGER) << "Connection configuration already exist for:" << _sensors[Name][i] << linkConf
                                    << linkConf.argsAsConst();
             _sensors[Available][i] = true;
@@ -50,6 +50,7 @@ void DeviceManager::append(const LinkConfiguration& linkConf, const QString& dev
     _sensors[Connected].append(false);
     _sensors[DetectorName].append(detectorName);
     _sensors[Name].append(deviceName);
+    _sensors[UnavailableCounter].append(0);
 
     const auto& indexRow = index(line);
     endInsertRows();
@@ -151,19 +152,57 @@ void DeviceManager::updateAvailableConnections(
     const QVector<LinkConfiguration>& availableLinkConfigurations, const QString& detector)
 {
     qCDebug(DEVICEMANAGER) << "Available devices:" << availableLinkConfigurations;
-    // Make all connections unavailable by default
+
     for (int i {0}; i < _sensors[Available].size(); i++) {
-        auto linkConf = _sensors[Connection][i].value<QSharedPointer<LinkConfiguration>>();
+        const auto linkConf = _sensors[Connection][i].value<QSharedPointer<LinkConfiguration>>();
         if (linkConf->isSimulation() || _sensors[DetectorName][i] != detector) {
             continue;
         }
+
+        // Make all connections unavailable by default
         _sensors[Available][i] = false;
         const auto indexRow = index(i);
         emit dataChanged(indexRow, indexRow, _roles);
     }
 
+    // Check if the configuration already exists for a sensor
+    // Serial ports does not support multiple devices connected
+    // Some sensors, like Ping1D, can fail to answer a ABR procedure
     for (const auto& link : availableLinkConfigurations) {
-        append(link, PingHelper::nameFromDeviceType(link.deviceType()), detector);
+        const bool sameSerialDevice = std::any_of(
+            _sensors[Connection].cbegin(), _sensors[Connection].cend(), [&link](const QVariant& variantLink) {
+                const auto sensorLink = variantLink.value<QSharedPointer<LinkConfiguration>>();
+                qCDebug(DEVICEMANAGER) << "Device" << *sensorLink
+                                       << "already already provided by a different connection:" << link;
+                return link.serialPort() == sensorLink->serialPort() && link != *sensorLink;
+            });
+
+        if (!sameSerialDevice) {
+            append(link, PingHelper::nameFromDeviceType(link.deviceType()), detector);
+        }
+    }
+
+    // We'll let the link to fail the communication attempt "a max number of fails" before making it unavailable
+    // This is necessary to avoid any problem related to automatic baud rates problem from the sensor side.
+    static const int maxNumberOfFails = 3;
+    for (int i {0}; i < _sensors[Available].size(); i++) {
+        const auto linkConf = _sensors[Connection][i].value<QSharedPointer<LinkConfiguration>>();
+        if (linkConf->isSimulation()) {
+            continue;
+        }
+
+        const auto indexRow = index(i);
+
+        // The sensor was detected, we can remove unavailable counter
+        if (_sensors[Available][i].toBool()) {
+            _sensors[UnavailableCounter][i] = 0;
+            emit dataChanged(indexRow, indexRow, _roles);
+            continue;
+        }
+        _sensors[Available][i] = _sensors[UnavailableCounter][i].toInt() < maxNumberOfFails;
+        _sensors[UnavailableCounter][i] = _sensors[UnavailableCounter][i].toInt() + 1;
+
+        emit dataChanged(indexRow, indexRow, _roles);
     }
 }
 

@@ -167,6 +167,8 @@ bool operator==(const LinkConfiguration& first, const LinkConfiguration& second)
         && (firstLinkconf.deviceType == secondLinkconf.deviceType);
 }
 
+bool operator!=(const LinkConfiguration& first, const LinkConfiguration& second) { return !(first == second); }
+
 QDebug operator<<(QDebug d, const LinkConfiguration& other)
 {
     QString text(QStringLiteral("LinkConfiguration{Name: %1, Sensor: %2, LinkType: %3, Arguments: (%4)}"));

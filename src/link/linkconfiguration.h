@@ -337,6 +337,7 @@ private:
 };
 
 bool operator==(const LinkConfiguration& first, const LinkConfiguration& second);
+bool operator!=(const LinkConfiguration& first, const LinkConfiguration& second);
 QDebug operator<<(QDebug d, const LinkConfiguration& other);
 QDataStream& operator<<(QDataStream& out, const LinkConfiguration linkConfiguration);
 QDataStream& operator>>(QDataStream& in, LinkConfiguration& linkConfiguration);

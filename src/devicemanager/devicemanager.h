@@ -185,6 +185,7 @@ private:
         Connection,
         Name,
         DetectorName,
+        UnavailableCounter,
     };
     QHash<int, QByteArray> _roleNames {
         {Available, "available"},
@@ -192,6 +193,7 @@ private:
         {Connection, "connection"},
         {Name, "name"},
         {DetectorName, "detectorName"},
+        {UnavailableCounter, "unavailableCounter"},
     };
 
     QSharedPointer<Sensor> _primarySensor;
