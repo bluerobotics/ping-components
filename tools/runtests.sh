@@ -33,7 +33,7 @@ xvfb-run --server-args="-screen 0 1024x768x24" $build_test/test || exit 1
 echob "Do runtime test:"
 ${scriptpath}/compile.sh --autokill --no-deploy --debug || exit 1
 export DISPLAY=:99.0
-build_folder="$projectpath/build"
+build_folder="/tmp/build"
 xvfb-run --server-args="-screen 0 1024x768x24" ${build_folder}/pingviewer || exit 1
 echob "Checking for warning messages.."
 last_log=$(ls -dt ~/Documents/PingViewer/Gui_Log/* | head -n1)
