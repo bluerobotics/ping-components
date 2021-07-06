@@ -1,0 +1,921 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.1, mkdocs-material-7.1.9">
+    
+    
+      
+        <title>Ping Viewer</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.ca7ac06f.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.f1a3b89f.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#02a6f2">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="css/center_images.css">
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="light-blue" data-md-color-accent="blue">
+  
+    
+    <script>function __prefix(e){return new URL(".",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#ping-viewer-documentation" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="index.html" title="Ping Viewer" class="md-header__button md-logo" aria-label="Ping Viewer" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Ping Viewer
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Quick Start
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="index.html" title="Ping Viewer" class="md-nav__button md-logo" aria-label="Ping Viewer" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    Ping Viewer
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Quick Start
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="index.html" class="md-nav__link md-nav__link--active">
+        Quick Start
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#installing-and-running-the-application" class="md-nav__link">
+    Installing and Running the Application
+  </a>
+  
+    <nav class="md-nav" aria-label="Installing and Running the Application">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#windows" class="md-nav__link">
+    Windows
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mac" class="md-nav__link">
+    Mac
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#linux" class="md-nav__link">
+    Linux
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#connection-setup" class="md-nav__link">
+    Connection Setup
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#main-application-interface" class="md-nav__link">
+    Main Application Interface
+  </a>
+  
+    <nav class="md-nav" aria-label="Main Application Interface">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ping1d" class="md-nav__link">
+    Ping1D
+  </a>
+  
+    <nav class="md-nav" aria-label="Ping1D">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#distance-readout" class="md-nav__link">
+    Distance Readout
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#distance-axis" class="md-nav__link">
+    Distance Axis
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#return-plot" class="md-nav__link">
+    Return Plot
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#waterfall" class="md-nav__link">
+    Waterfall
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ping360" class="md-nav__link">
+    Ping360
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#application-and-device-settings" class="md-nav__link">
+    Application and Device Settings
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      <label class="md-nav__link" for="__nav_2">
+        Viewer Guide
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Viewer Guide" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Viewer Guide
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_1" type="checkbox" id="__nav_2_1" >
+      
+      <label class="md-nav__link" for="__nav_2_1">
+        Device Settings
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Device Settings" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_1">
+          <span class="md-nav__icon md-icon"></span>
+          Device Settings
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="device-settings-ping1d.html" class="md-nav__link">
+        Ping1D
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="device-settings-ping360.html" class="md-nav__link">
+        Ping360
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="firmware-update.html" class="md-nav__link">
+        Firmware Update
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2" type="checkbox" id="__nav_2_2" >
+      
+      <label class="md-nav__link" for="__nav_2_2">
+        Application Settings
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Application Settings" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          Application Settings
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="display-settings.html" class="md-nav__link">
+        Display Settings
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="device-manager.html" class="md-nav__link">
+        Device Manager
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="notifications-and-updates.html" class="md-nav__link">
+        Notificiations and Updates
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="replay-data.html" class="md-nav__link">
+        Replay Data
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="application-information.html" class="md-nav__link">
+        Application Information
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="hotkeys-and-shortcuts.html" class="md-nav__link">
+        Hotkeys and Shortcuts
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_7" type="checkbox" id="__nav_2_7" >
+      
+      <label class="md-nav__link" for="__nav_2_7">
+        Logging and User Files
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Logging and User Files" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_7">
+          <span class="md-nav__icon md-icon"></span>
+          Logging and User Files
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="logging-and-user-files.html" class="md-nav__link">
+        User Files
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="binary-structure.html" class="md-nav__link">
+        Binary file structure
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="mavlink-integration.html" class="md-nav__link">
+        MAVLink Integration
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="faq-and-troubleshooting.html" class="md-nav__link">
+        FAQ and Troubleshooting
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      <label class="md-nav__link" for="__nav_3">
+        Developers
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Developers" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Developers
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="build-instructions.html" class="md-nav__link">
+        Build Instructions
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="libraries-and-tools.html" class="md-nav__link">
+        Libraries and Tools
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#installing-and-running-the-application" class="md-nav__link">
+    Installing and Running the Application
+  </a>
+  
+    <nav class="md-nav" aria-label="Installing and Running the Application">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#windows" class="md-nav__link">
+    Windows
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mac" class="md-nav__link">
+    Mac
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#linux" class="md-nav__link">
+    Linux
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#connection-setup" class="md-nav__link">
+    Connection Setup
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#main-application-interface" class="md-nav__link">
+    Main Application Interface
+  </a>
+  
+    <nav class="md-nav" aria-label="Main Application Interface">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ping1d" class="md-nav__link">
+    Ping1D
+  </a>
+  
+    <nav class="md-nav" aria-label="Ping1D">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#distance-readout" class="md-nav__link">
+    Distance Readout
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#distance-axis" class="md-nav__link">
+    Distance Axis
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#return-plot" class="md-nav__link">
+    Return Plot
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#waterfall" class="md-nav__link">
+    Waterfall
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ping360" class="md-nav__link">
+    Ping360
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#application-and-device-settings" class="md-nav__link">
+    Application and Device Settings
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="ping-viewer-documentation"><em>Ping Viewer</em> Documentation</h1>
+<p><em>Ping Viewer</em> is the graphical user interface for the Blue Robotics <a href="https://www.bluerobotics.com/store/sensors-sonars-cameras/sonar/ping-sonar-r2-rp/"><em>Ping1D</em> Altimeter and Echosounder</a> and <a href="https://bluerobotics.com/store/sensors-sonars-cameras/sonar/ping360-sonar-r1-rp/"><em>Ping360</em> Scanning Imaging Sonar</a>. The application allows you to connect, configure, view data, and record data from a <em>Ping</em> device.</p>
+<p><img alt="Ping Viewer main Ping1D display" src="https://www.bluerobotics.com/wp-content/uploads/2019/01/ping-viewer-1.jpg" />
+<img alt="Ping Viewer main Ping360 display" src="https://bluerobotics.com/wp-content/uploads/2019/07/Ping360_Pilings.png" /></p>
+<h2 id="installing-and-running-the-application">Installing and Running the Application</h2>
+<p>Follow the setup instructions for your operating system:</p>
+<ul>
+<li><a href="https://docs.bluerobotics.com/ping-viewer/#windows">Windows</a></li>
+<li><a href="https://docs.bluerobotics.com/ping-viewer/#mac">Mac</a></li>
+<li><a href="https://docs.bluerobotics.com/ping-viewer/#linux">Linux</a></li>
+</ul>
+<h3 id="windows">Windows</h3>
+<p>Download <a href="https://github.com/bluerobotics/ping-viewer/releases/download/stable/pingviewer_release.zip">this .zip file</a>, open the download location in the File Explorer, and extract it. Open the application by double clicking the executable file (pingviewer.exe). Windows will ask you to trust the software; click <strong>More Info</strong> → <strong>Run Anyway</strong>.</p>
+<p><img alt="Windows protected your PC screen" src="/ping-viewer/images/install/windows-protected-your-pc.png" /></p>
+<h3 id="mac">Mac</h3>
+<p>Download <a href="https://github.com/bluerobotics/ping-viewer/releases/download/stable/pingviewer-release.dmg">this .dmg file</a>, and double click it to open. Drag the Ping Viewer application icon to your <em>Applications</em> folder. Open the application by double clicking the icon in your <em>Applications</em> folder.</p>
+<p><img alt="Install from .dmg" src="/ping-viewer/images/install/mac-install-from-dmg.jpg" /></p>
+<p>If you get an 'unidentified developer' notification when you try to open the application, you may adjust your security preferences to allow the application to run. Visit <strong>System Preferences</strong> -&gt; <strong>Security and Privacy</strong>, click the lock and enter your password to make changes, then click 'Open Anyway'.</p>
+<p><img alt="Mac Unindentified Developer" src="/ping-viewer/images/install/mac-unidentified-developer.png" /></p>
+<p><img alt="Mac System Preferences" src="/ping-viewer/images/install/mac-system-preferences-annotated.png" /></p>
+<p><img alt="Mac Security and Privacy" src="/ping-viewer/images/install/mac-security-and-privacy-annotated.png" /></p>
+<h3 id="linux">Linux</h3>
+<p>Download <a href="https://github.com/bluerobotics/ping-viewer/releases/download/stable/pingviewer-x86_64.AppImage">this .AppImage file</a>. Edit the permissions of the .AppImage to have <em>executable</em> permission with the command line: <code>chmod +x ping-viewer-linux.AppImage</code>. Open the AppImage by double clicking it, or execute it from the command line: <code>./ping-viewer-linux.AppImage</code>.</p>
+<blockquote>
+<p>Remember to run the commands in the same path where the Appimage file is.</p>
+</blockquote>
+<h2 id="connection-setup">Connection Setup</h2>
+<p>To begin using the device, connect it to a USB - UART converter that operates on 5V like <a href="https://www.bluerobotics.com/store/comm-control-power/tether-interface/bluart-r1-rp/">this</a> Blue Robotics adapter. Then connect the converter to your computer's USB port. The Ping Viewer application should automatically detect your device and begin displaying data. If it does not, check the <a href="faq-and-troubleshooting.html">FAQ and Troubleshooting</a> guide.</p>
+<p>Visit the <a href="device-manager.html">Device Manager</a> menu for more connection options.</p>
+<h2 id="main-application-interface">Main Application Interface</h2>
+<h3 id="ping1d">Ping1D</h3>
+<p>When using the Ping1D, the Ping Viewer window consists of four important components:</p>
+<ol>
+<li><a href="#distance-readout">Distance Readout</a></li>
+<li><a href="#distance-axis">Distance Axis</a></li>
+<li><a href="#return-plot">Return Plot</a></li>
+<li><a href="#waterfall">Waterfall</a></li>
+</ol>
+<p><img alt="Interface Annotated" src="/ping-viewer/images/viewer/annotated/interface-annotated.png" /></p>
+<h4 id="distance-readout">Distance Readout</h4>
+<p><img alt="Distance Readout" src="/ping-viewer/images/viewer/distance-readout-closeup.png" /></p>
+<p>The Distance Readout displays the distance to the target in the most recent measurement. This is the distance to the seafloor in <a href="https://en.wikipedia.org/wiki/Depth_sounding">depth sounding</a> applications.</p>
+<p>The confidence measurement for the most recent sample is displayed below the distance in the Distance readout. The color of the Distance Readout reflects the current confidence measurement, where green = 100%, yellow = 50% and red = 0%: <img alt="" src="/ping-viewer/images/gradient-green-red.png" /></p>
+<p>The size of the distance readout can be <a href="hotkeys-and-shortcuts.html#mouse-shortcuts">moved and adjusted</a>.</p>
+<h4 id="distance-axis">Distance Axis</h4>
+<p><img alt="Distance Axis" src="/ping-viewer/images/viewer/distance-axis-closeup.png" /></p>
+<p>The Distance Axis is labeled with bold numbers on the right-hand edge of the Waterfall. This axis represents the distance from the Ping device transducer. The axis runs vertically down the screen, with the face of the transducer (zero distance) located at the top of the window. The deeper/farther an object is from the transducer, the closer its return will appear to the bottom of the window. The Distance Axis scale automatically adjusts to display the current scanning range of the Ping device.</p>
+<p>There is an orange arrow on the Distance Axis indicating the distance to the target in the most recent measurement (this is the same as the Distance Readout).</p>
+<h4 id="return-plot">Return Plot</h4>
+<p><img alt="Return Plot" src="/ping-viewer/images/viewer/return-plot-closeup.png" /></p>
+<p>The Return Plot displays the return strength vs distance of the most recent profile sample. The plot displays the measurement of only a single dependent variable (return strength), and is simply mirrored for ease of viewing. Stronger returns appear as wider traces.</p>
+<p><strong>Note</strong> You may observe a very strong return at the top of the screen (at zero distance, essentially touching the device); this return is from the Ping device itself. When the Ping device emits the acoustic pulse, the device is still vibrating or 'ringing' like a bell when it begins measuring the return signal. This residual energy in the vibrations of the Ping device body is picked up as a return signal until it decays away.</p>
+<h4 id="waterfall">Waterfall</h4>
+<p><img alt="Waterfall" src="/ping-viewer/images/viewer/waterfall-closeup.png" /></p>
+<p>The Waterfall is a three dimensional plot that occupies the main portion of the application window. The Waterfall plots consecutive profile samples (distance running vertically and color indicating signal strength). The horizontal axis is time; new data is displayed on the right edge of the Waterfall as older data moves to the left.</p>
+<p>The color scheme (gradient) of the Waterfall can be <a href="display-settings.html">customized</a>.</p>
+<h3 id="ping360">Ping360</h3>
+<p>For the Ping360, there is no distance readout, the waterfall is wrapped around into a circular (polar) plot showing the scan data at each angle, and the distance axis is along the right-hand edge of the sector scan. The return plot is the same as for the Ping1D, and shows the signal return strength over the full range of the latest ping.</p>
+<p>The sector angle and range <a href="device-settings-ping360.html">can be set</a> to match your operating requirements, and there are options for <a href="display-settings.html">heading integration and head down mode</a> to adapt the display to your ROV and Ping360's orientation.</p>
+<h2 id="application-and-device-settings">Application and Device Settings</h2>
+<p>See <a href="display-settings.html">here</a> for instructions to switch between meters and feet for the application display.</p>
+<p>To adjust the update rate and other Ping device settings, visit the relevant page in the 'Device Settings' section.</p>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+      
+        
+        <a href="device-settings-ping1d.html" class="md-footer__link md-footer__link--next" aria-label="Next: Ping1D" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Ping1D
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": ".", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "assets/javascripts/workers/search.477d984a.min.js", "version": null}</script>
+    
+    
+      <script src="assets/javascripts/bundle.82b56eb2.min.js"></script>
+      
+    
+  </body>
+</html>

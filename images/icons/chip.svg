@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generator: Gravit.io -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   style="isolation:isolate"
+   viewBox="0 0 24 24"
+   width="24"
+   height="24"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="chip_black.svg">
+  <metadata
+     id="metadata17">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="748"
+     inkscape:window-height="480"
+     id="namedview15"
+     showgrid="false"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     inkscape:zoom="6.5555556"
+     inkscape:cx="12"
+     inkscape:cy="12"
+     inkscape:window-x="10"
+     inkscape:window-y="34"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg2" />
+  <defs
+     id="defs4">
+    <clipPath
+       id="_clipPath_rwTTaYttyL5x2VAHxkPIGvspyIH3Gr7M">
+      <rect
+         width="36"
+         height="36"
+         id="rect7"
+         x="0"
+         y="0" />
+    </clipPath>
+  </defs>
+  <g
+     clip-path="url(#_clipPath_rwTTaYttyL5x2VAHxkPIGvspyIH3Gr7M)"
+     id="g9"
+     transform="translate(-6,-6)">
+    <g
+       shape="[GCompoundPath]"
+       id="g11">
+      <image
+         xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAABF0lEQVRIS9WW/Q0BQRDFf1cBnaACdEQFqICOUAE6oQLyLjuXucva2zgrMX9t3Nt58+ZrVfTbM0DOwCKcT8A8nKuUi+THcPHrBFNg5KJStLIrsArnAyCczFTp/Ai45npXwRbY9GctidgB8lObJ1BEl4HO7frMlHgCST0GxLorNYNYAe4DbgnUqX1H0AAyHBvEB/hbAmtDH6xXEPvusZYFr6DVRcUJrM/HwKRbJMAC8D3uZyWm4Abcc4ucO8kfF3kwgVIkJ0qRjX+syJKsdSETTnifBa9AuCZFxYtcnCA5iX8xyTEF2vtW0FwRKrzeCVl0FxVf12Iu+uBYKnyP6zd7IzT+/sn0a8Xu+llpDUkqz7mTHPVR/F/FC8sfZJSOrIjsAAAAAElFTkSuQmCC"
+         x="6"
+         y="6"
+         width="24"
+         height="24"
+         id="image13" />
+    </g>
+  </g>
+</svg>
