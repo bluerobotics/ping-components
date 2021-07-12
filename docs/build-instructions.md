@@ -65,6 +65,22 @@ When installing, you must minimally select all Visual C++ components.
 
 #### Building with terminal
 
+Since Ping-Viewer v2.2.0, the project now uses CMake to simplify the build process.
+For more information about CMake with Qt based projects, check the [Qt CMake manual](https://doc.qt.io/qt-5/cmake-manual.html);
+
+1. Use CMake to configure the project
+    - `cmake -B build -DCMAKE_BUILD_TYPE=Debug`
+2. Use CMake again to build it
+    - `cmake --build build --parallel --config Debug`
+3. Go inside build folder
+    - `cd build`
+4. And after that you'll be able to run the project
+    - `./pingviewer`
+
+##### QMake build
+
+For Ping-Viewer versions under v2.2.0.
+
 1. Go outside the cloned folder of Ping-Viewer
 2. Create the build folder
     - `mkdir ping-viewer-build`
